@@ -13,10 +13,10 @@ This is a web application for classifying Iris flowers based on their features (
 
 ```
 .
-├── backend/      # FastAPI Backend Code
+├── iris-backend/      # FastAPI Backend Code
 │   ├── main.py
 │   └── requirements.txt
-├── frontend/     # Angular Frontend Code
+├── iris-frontend/     # Angular Frontend Code
 │   ├── public/
 │   │   └── img/  # Flower images here
 │   ├── src/
