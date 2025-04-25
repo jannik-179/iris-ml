@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="form-container">
+    <h2>Classify a New Iris Flower</h2>
+    
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="sepal_l">Sepal Length (cm):</label>
+        <input type="number" id="sepal_l" name="sepal_l" [(ngModel)]="sepal_l" required step="0.1" min="0">
+      </div>
+      <div>
+        <label for="sepal_w">Sepal Width (cm):</label>
+        <input type="number" id="sepal_w" name="sepal_w" [(ngModel)]="sepal_w" required step="0.1" min="0">
+      </div>
+      <div>
+        <label for="petal_l">Petal Length (cm):</label>
+        <input type="number" id="petal_l" name="petal_l" [(ngModel)]="petal_l" required step="0.1" min="0">
+      </div>
+      <div>
+        <label for="petal_w">Petal Width (cm):</label>
+        <input type="number" id="petal_w" name="petal_w" [(ngModel)]="petal_w" required step="0.1" min="0">
+      </div>
+    
+      <button type="submit" [disabled]="isLoading">
+        {{ isLoading ? 'Predicting...' : 'Make Prediction' }}
+      </button>
+    </form>
+    
+    <div *ngIf="errorMessage" class="error">
+      <p>Error: {{ errorMessage }}</p>
+    </div>
+  </div>
+  
+  <div *ngIf="predictionResult" class="result-container">
+    <div class="result">
+      <h3>Prediction:</h3>
+      <p>The flower is most likely a <strong>{{ predictionResult }}</strong></p>
+    </div>
+    <div class="image-container">
+      <img [src]="'img/' + predictionResult + '.png'" [alt]="predictionResult" class="iris-image">
+    </div>
+  </div>
+</div>
